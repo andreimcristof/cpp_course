@@ -34,6 +34,8 @@ int main()
 	Container* PtrToContainer = &container; // specify pointer type, so that you can point to the address of that type
 
 	cout << (*PtrToContainer).Name << endl; // pointers to any type can be dereferenced, to get the underlying value
+	cout << (*PtrToContainer).X << endl; // paren ensures that the pointer is first dereferenced, then the operand dot can be used to get the prop. Its about the order of operations necessary for the <<
+	cout << PtrToContainer->Name << endl; // this also dereferences the pointer. its syntactic sugar, better readability. 
 
 	system("pause");
 }
