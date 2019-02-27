@@ -1,8 +1,6 @@
 #include <iostream>
 #include "pointers.h"
 
-// to compile all in vs code: g++ -o output.sh *.cpp
-
 using namespace std;
 
 namespace pointerstest 

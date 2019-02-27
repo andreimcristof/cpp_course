@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "pointers.h"
+#include "ctortest.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main()
 
 	int* NumPtr = numbers;
 	cout << *NumPtr << endl;
-	NumPtr++; // since pointers to arrays point to the first element of the array, incrementing the pointer can access subsequent array elements
+	NumPtr++; // since pointers to arrays point to the first element of the array, iaaaancrementing the pointer can access subsequent array elements
 	cout << *NumPtr << endl;
 	NumPtr += 3;
 	cout << *NumPtr << endl;
@@ -36,6 +37,10 @@ int main()
 	cout << (*PtrToContainer).Name << endl; // pointers to any type can be dereferenced, to get the underlying value
 	cout << (*PtrToContainer).X << endl; // paren ensures that the pointer is first dereferenced, then the operand dot can be used to get the prop. Its about the order of operations necessary for the <<
 	cout << PtrToContainer->Name << endl; // this also dereferences the pointer. its syntactic sugar, better readability. 
+
+	// 4
+	ctortest::Chihuahua doggo("rex");
+	cout << doggo.Age << endl;
 
 	system("pause");
 }
