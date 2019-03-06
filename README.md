@@ -8,4 +8,5 @@ pet project for the lolz. learning c++ to understand differences to c#
 
 ##### compilation
 
-g++ -o /tmp/output.sh *.cpp
+g++ -o /tmp/output.sh *.cpp -std=c++11
+

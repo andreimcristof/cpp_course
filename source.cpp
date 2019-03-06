@@ -2,8 +2,11 @@
 #include <string>
 #include "pointers.h"
 #include "ctortest.h"
+#include "ctortest2.h"
 
+using namespace ctortest;
 using namespace std;
+
 
 struct Container
 {
@@ -39,8 +42,41 @@ int main()
 	cout << PtrToContainer->Name << endl; // this also dereferences the pointer. its syntactic sugar, better readability. 
 
 	// 4
-	ctortest::Chihuahua doggo("rex");
+	Chihuahua doggo("rex");
 	cout << doggo.Age << endl;
+
+	// 5
+   	Character* charPtr = new Character;
+    charPtr->PrintHealth();
+
+    Actor* actorPtr = new Actor;
+    actorPtr->PrintHealth();
+
+    Pawn* pawnPtr = new Pawn;
+    pawnPtr->PrintHealth();
+
+	
+	// releasing all resources
+
+    delete charPtr; // deleting the pointer
+    charPtr = nullptr; // set to nullptr
+
+    delete actorPtr;
+    actorPtr = nullptr;
+
+    delete pawnPtr;
+    pawnPtr = nullptr;
+
+
+
+    // 6 
+	// practicing memory allocatins /deallocations
+    int* p = new int(5);
+    cout << &p << endl; // address
+    cout << *p << endl; // getting the value by dereferencing the pointer
+
+    delete p; //free up the memory address that p was pointing to, so that the address can further be used
+    p = nullptr; // this avoids a "dangling" pointer, which is a pointer that points to nothing
 
 	system("pause");
 }
