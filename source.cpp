@@ -45,19 +45,28 @@ int main()
 	Chihuahua doggo("rex");
 	cout << doggo.Age << endl;
 
-	// 5
+	// 5 dynamic cast in c++
    	Character* charPtr = new Character;
-    charPtr->PrintHealth();
-
+	charPtr->PrintHealth();
     Actor* actorPtr = new Actor;
-    actorPtr->PrintHealth();
+	Pawn* pawnPtr = new Pawn;
 
-    Pawn* pawnPtr = new Pawn;
-    pawnPtr->PrintHealth();
+	Character* charArr[] = { charPtr, actorPtr, pawnPtr };
+	for(int i = 0; i< 3; i++)
+	{
+		Character* cPtr = charArr[i];
+		cPtr->CharacterFn(); // works because this fn is inherited by all types. 
 
+		Actor* aPtr = dynamic_cast<Actor*>(cPtr); // will either succeed or fail depending on type
+		if(aPtr != nullptr) 
+			aPtr->ActorFn();
+
+		Pawn* pPtr = dynamic_cast<Pawn*>(cPtr);
+		if(pPtr) // same as comparing with nullptr 
+			pPtr->PawnFn(); 
+	}
 	
 	// releasing all resources
-
     delete charPtr; // deleting the pointer
     charPtr = nullptr; // set to nullptr
 

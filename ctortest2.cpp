@@ -27,6 +27,16 @@ namespace ctortest {
         cout << "Character health: " << this->health << endl;
     }
 
+    void Character::CharacterFn()
+    {
+        cout << "CharacterFn called" << endl;
+    }
+
+    void Actor::ActorFn()
+    {
+        cout << "ActorFn called" << endl;
+    }
+
     void Actor::PrintHealth()
     {
         cout << "_Actor health: " << this->health << endl;
@@ -35,5 +45,10 @@ namespace ctortest {
     void Pawn::PrintHealth()
     {
         cout << "Pawn health: " << this->health << endl;
+    }
+
+    void Pawn::PawnFn()
+    {
+        cout << "PawnFn called" << endl;
     }
 }
