@@ -7,6 +7,7 @@
 using namespace ctortest;
 using namespace std;
 
+// g++ -o /tmp/output.sh *.cpp -std=c++11
 
 struct Container
 {
@@ -87,5 +88,37 @@ int main()
     delete p; //free up the memory address that p was pointing to, so that the address can further be used
     p = nullptr; // this avoids a "dangling" pointer, which is a pointer that points to nothing
 
+
+	// 7 pointers practice 
+	int tt {100};
+	int* ttptr {&tt};
+	cout << "test " << *ttptr << endl;
+
+	double highTemp {100.7};
+	double lowTemp {33.1};
+	double* tempPtr {&highTemp};
+	cout << "tempPtr points to: " << *tempPtr << endl;
+	tempPtr  = &lowTemp;
+	cout << "tempPtr points to: " << *tempPtr << endl;
+
+	string name { "Name1" };
+	string* namePtr { &name };
+	cout << "namePtr points to:" << *namePtr << endl;
+	name = "Name2";
+	cout << "namePtr points to:" << *namePtr << endl;
+
+	// 8 dynamic memory allocation
+	int* intPtr { nullptr };
+	intPtr = new int; // allocate an int on the heap
+	*intPtr = 100;
+	cout << *intPtr << endl;		
+	delete intPtr; // release / deallocate storage
+
+	int* arrayPtr { nullptr };
+	int size {4};
+	arrayPtr = new int[size];
+	delete arrayPtr;
+
+	
 	system("pause");
 }

@@ -29,3 +29,13 @@ Accessing the stored value in the memory address
 `cout << *ptr;`
 
 ...is called "dereferencing the pointer".
+
+## delete
+Only pointers initialized with `new` can be freed with delete!
+
+example: 
+`int* intPtr = new int;` 
+can call delete on this pointer
+
+`string name { "Name1" }; string* namePtr { &name };`  
+cannot call delete
