@@ -3,11 +3,12 @@
 #include "pointers.h"
 #include "ctortest.h"
 #include "ctortest2.h"
+#include "vectortest.h"
 
 using namespace ctortest;
 using namespace std;
 
-// g++ -o /tmp/output.sh *.cpp -std=c++11
+// g++ -o /tmp/output.sh *.cpp -std=c++14
 
 struct Container
 {
@@ -90,25 +91,33 @@ int main()
 
 
 	// 7 pointers practice 
-	int tt {100};
-	int* ttptr {&tt};
+	int tt = {100};
+	int* ttptr =  {&tt};
 	cout << "test " << *ttptr << endl;
 
-	double highTemp {100.7};
-	double lowTemp {33.1};
-	double* tempPtr {&highTemp};
+	int first = {300};
+	int* firstPtr = &first;
+	int second = {100};
+	int* secondPtr = &second; 
+
+	int* largest = pointerstest::getLargestIntPtr(&first, &second);
+	cout << "largest pointer pointed to: " << *largest << endl;
+
+	double highTemp = {100.7};
+	double lowTemp = {33.1};
+	double* tempPtr = {&highTemp};
 	cout << "tempPtr points to: " << *tempPtr << endl;
 	tempPtr  = &lowTemp;
 	cout << "tempPtr points to: " << *tempPtr << endl;
 
-	string name { "Name1" };
-	string* namePtr { &name };
+	string name = "Name1" ;
+	string* namePtr = &name;
 	cout << "namePtr points to:" << *namePtr << endl;
 	name = "Name2";
 	cout << "namePtr points to:" << *namePtr << endl;
 
 	// 8 dynamic memory allocation
-	int* intPtr { nullptr };
+	int* intPtr = nullptr;
 	intPtr = new int; // allocate an int on the heap
 	*intPtr = 100;
 	cout << *intPtr << endl;		
@@ -119,6 +128,17 @@ int main()
 	arrayPtr = new int[size];
 	delete arrayPtr;
 
-	
+
+	// 9 vector tests
+	std::vector<int> {0,1};	
+
+	int test {5};
+	int* testPtr = &test;
+	cout << "reasignation of underlying pointed value" << endl;
+	cout << *testPtr << endl;
+	pointerstest::doubleTheValue(testPtr);
+	cout << *testPtr << endl;
+
+	// 10 
 	system("pause");
 }
